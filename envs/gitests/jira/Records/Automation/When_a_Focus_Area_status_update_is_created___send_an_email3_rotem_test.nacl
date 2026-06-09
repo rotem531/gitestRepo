@@ -1,38 +1,35 @@
-jira.Automation When_a_Focus_Area_status_update_is_created___send_an_email@ssssssss_08594sss {
-  name = "When a Focus Area status update is created → send an email"
+jira.Automation When_a_Focus_Area_status_update_is_created___send_an_email3_rotem_test@ssssssss_08594sssub {
+  name = "When a Focus Area status update is created → send an email3"
   state = "DISABLED"
   description = "When a Focus Area status update is created, this rule will send an email to specified addresses."
-  canOtherRuleTrigger = false
-  notifyOnError = "FIRSTERROR"
   authorAccountId = {
     id = "712020:38da96f3-a719-4d9f-8bb5-d53ff08774e0"
     displayName = "Rotem Cohen"
   }
   actor = {
     type = "ACCOUNT_ID"
-    actor = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
   }
   trigger = {
     component = "TRIGGER"
-    schemaVersion = 1
     type = "jira.issue.event.trigger:moved"
     value = {
       eventKey = "jira:issue_updated"
       issueEvent = "issue_moved"
-      eventFilters = [
-        "ari:cloud:jira:71e61b65-4676-404d-96f0-38fbadce3261:project/10039",
-      ]
       sourceProject = "-1999"
       targetProject = "-1999"
     }
     conditions = [
     ]
-    id = "faaabf4c-f6a1-499e-bf55-1752fba3de1e"
+    children = [
+    ]
   }
   components = [
     {
       component = "ACTION"
-      schemaVersion = -1
       type = "action.send-templated-email"
       value = {
         to = [
@@ -73,20 +70,26 @@ jira.Automation When_a_Focus_Area_status_update_is_created___send_an_email@sssss
       ]
       children = [
       ]
-      id = "35453968-926d-4008-8e77-024dedd492f2"
     },
   ]
-  ruleScopeARIs = [
-    "ari:cloud:jira:71e61b65-4676-404d-96f0-38fbadce3261:project/10039",
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.rotem_test@b
+    },
   ]
   labels = [
     jira.AutomationLabel.instance.ASD,
-    jira.AutomationLabel.instance.QWE,
-    jira.AutomationLabel.instance.newLabel,
   ]
   writeAccessType = "UNRESTRICTED"
   collaborators = [
   ]
-  uuid = "019dd3d1-fa87-7f7f-9e66-35736cb24939"
-  _alias = "When a Focus Area status update is created → send an email"
+  billingType = "NORMAL"
+  partitionId = "2b4dca46-929c-416e-be53-1a2fd2715576"
+  checksum = {
+    version = 3
+    value = "f11672b543470a678a374ad932c9c6147051a02eba087414946381070bcab76f"
+  }
+  _alias = "When a Focus Area status update is created → send an email3"
 }

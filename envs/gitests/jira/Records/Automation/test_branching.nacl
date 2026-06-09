@@ -8,47 +8,41 @@ jira.Automation test_branching@s {
   }
   actor = {
     type = "ACCOUNT_ID"
-    actor = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
   }
   trigger = {
     component = "TRIGGER"
-    schemaVersion = 1
     type = "jira.issue.event.trigger:created"
     value = {
       eventKey = "jira:issue_created"
       issueEvent = "issue_created"
-      eventFilters = [
-        "ari:cloud:jira::site/71e61b65-4676-404d-96f0-38fbadce3261",
-      ]
     }
     conditions = [
     ]
-    id = "31199020"
+    children = [
+    ]
   }
   components = [
     {
       component = "ORCHESTRATION"
-      schemaVersion = 1
       type = "automation.orchestration.instruction.split-parallel"
-      value = {
-      }
       conditions = [
       ]
       children = [
         {
           component = "ORCHESTRATION"
-          schemaVersion = 1
           type = "automation.orchestration.split-parallel.child"
           value = {
             branchName = "Branch 1"
           }
           conditions = [
           ]
-          parentId = "31199021"
           children = [
             {
               component = "ORCHESTRATION"
-              schemaVersion = 1
               type = "automation.orchestration.fragment"
               value = {
                 inputProjections = [
@@ -60,11 +54,9 @@ jira.Automation test_branching@s {
               }
               conditions = [
               ]
-              parentId = "31199022"
               children = [
                 {
                   component = "ACTION"
-                  schemaVersion = 12
                   type = "jira.issue.create"
                   value = {
                     operations = [
@@ -123,31 +115,24 @@ jira.Automation test_branching@s {
                   }
                   conditions = [
                   ]
-                  parentId = "31199023"
                   children = [
                   ]
-                  id = "31199024"
                 },
               ]
-              id = "31199023"
             },
           ]
-          id = "31199022"
         },
         {
           component = "ORCHESTRATION"
-          schemaVersion = 1
           type = "automation.orchestration.split-parallel.child"
           value = {
             branchName = "Branch 2"
           }
           conditions = [
           ]
-          parentId = "31199021"
           children = [
             {
               component = "ORCHESTRATION"
-              schemaVersion = 1
               type = "automation.orchestration.fragment"
               value = {
                 inputProjections = [
@@ -159,11 +144,9 @@ jira.Automation test_branching@s {
               }
               conditions = [
               ]
-              parentId = "31199025"
               children = [
                 {
                   component = "ACTION"
-                  schemaVersion = 4
                   type = "jira.worklog.add"
                   value = {
                     timeSpent = "5m"
@@ -176,31 +159,28 @@ jira.Automation test_branching@s {
                   }
                   conditions = [
                   ]
-                  parentId = "31199026"
                   children = [
                   ]
-                  id = "31199027"
                 },
               ]
-              id = "31199026"
             },
           ]
-          id = "31199025"
         },
       ]
-      id = "31199021"
     },
   ]
   canOtherRuleTrigger = false
   notifyOnError = "FIRSTERROR"
-  ruleScopeARIs = [
-    "ari:cloud:jira::site/71e61b65-4676-404d-96f0-38fbadce3261",
-  ]
   labels = [
   ]
   writeAccessType = "UNRESTRICTED"
   collaborators = [
   ]
   _alias = "test branching"
-  uuid = "019817dd-0aa2-7ed6-84e0-cfabebac4d7d"
+  billingType = "NORMAL"
+  partitionId = "2b4dca46-929c-416e-be53-1a2fd2715576"
+  checksum = {
+    version = 2
+    value = "bab479efda9c407edc4dc34bf86b30a0feb9750ab5bafdd98e9e77ba1b809fc6"
+  }
 }

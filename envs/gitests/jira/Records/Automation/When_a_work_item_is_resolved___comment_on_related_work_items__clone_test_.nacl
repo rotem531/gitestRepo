@@ -7,16 +7,15 @@ jira.Automation When_a_work_item_is_resolved___comment_on_related_work_items__cl
   }
   actor = {
     type = "ACCOUNT_ID"
-    actor = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
   }
   trigger = {
     component = "TRIGGER"
-    schemaVersion = 2
     type = "jira.issue.field.changed"
     value = {
-      eventFilters = [
-        "ari:cloud:jira-core::site/71e61b65-4676-404d-96f0-38fbadce3261",
-      ]
       changeType = "VALUE_ADDED"
       fields = [
         {
@@ -30,12 +29,12 @@ jira.Automation When_a_work_item_is_resolved___comment_on_related_work_items__cl
     }
     conditions = [
     ]
-    id = "95c6f805-3d81-456a-9c96-d95c738104d1"
+    children = [
+    ]
   }
   components = [
     {
       component = "BRANCH"
-      schemaVersion = 1
       type = "jira.issue.related"
       value = {
         relatedType = "parent"
@@ -51,7 +50,6 @@ jira.Automation When_a_work_item_is_resolved___comment_on_related_work_items__cl
       children = [
         {
           component = "CONDITION"
-          schemaVersion = 3
           type = "jira.issue.condition"
           value = {
             selectedField = {
@@ -70,26 +68,20 @@ jira.Automation When_a_work_item_is_resolved___comment_on_related_work_items__cl
           }
           conditions = [
           ]
-          parentId = "ba0d0abf-1950-4e76-821e-674c6378cc09"
           children = [
           ]
-          id = "6580431d-32c5-4efd-87d9-175d4f3e2279"
         },
         {
           component = "CONDITION"
-          schemaVersion = 1
           type = "jira.jql.condition"
           conditions = [
           ]
-          parentId = "ba0d0abf-1950-4e76-821e-674c6378cc09"
           children = [
           ]
-          id = "87017ecb-3953-4254-9906-cb6570ed0fbb"
           rawValue = "${ jira.Field.instance.Priority__priority } > ${ jira.Priority.instance.Medium.name }"
         },
         {
           component = "ACTION"
-          schemaVersion = 12
           type = "jira.issue.create"
           value = {
             operations = [
@@ -140,17 +132,13 @@ jira.Automation When_a_work_item_is_resolved___comment_on_related_work_items__cl
           }
           conditions = [
           ]
-          parentId = "ba0d0abf-1950-4e76-821e-674c6378cc09"
           children = [
           ]
-          id = "1d59e84d-94d6-4537-b94e-fbe3578a6650"
         },
       ]
-      id = "ba0d0abf-1950-4e76-821e-674c6378cc09"
     },
     {
       component = "ACTION"
-      schemaVersion = 12
       type = "jira.issue.create"
       value = {
         operations = [
@@ -203,13 +191,14 @@ jira.Automation When_a_work_item_is_resolved___comment_on_related_work_items__cl
       ]
       children = [
       ]
-      id = "4924c382-01dd-4c99-91ac-067a44b650f8"
     },
   ]
   canOtherRuleTrigger = false
   notifyOnError = "FIRSTERROR"
-  ruleScopeARIs = [
-    "ari:cloud:jira-core::site/71e61b65-4676-404d-96f0-38fbadce3261",
+  projects = [
+    {
+      projectTypeKey = "business"
+    },
   ]
   labels = [
   ]
@@ -217,5 +206,10 @@ jira.Automation When_a_work_item_is_resolved___comment_on_related_work_items__cl
   collaborators = [
   ]
   _alias = "When a work item is resolved → comment on related work items (clone test)"
-  uuid = "019da632-9533-7c20-80a0-8f0d929b19cb"
+  billingType = "NORMAL"
+  partitionId = "2b4dca46-929c-416e-be53-1a2fd2715576"
+  checksum = {
+    version = 3
+    value = "887905515a54dd5a843eba559e9a67443de2da96daf4dda88be3c9b62ff14526"
+  }
 }

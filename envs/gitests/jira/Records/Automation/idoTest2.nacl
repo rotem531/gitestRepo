@@ -7,16 +7,15 @@ jira.Automation idoTest2 {
   }
   actor = {
     type = "ACCOUNT_ID"
-    actor = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
   }
   trigger = {
     component = "TRIGGER"
-    schemaVersion = 2
     type = "jira.issue.field.changed"
     value = {
-      eventFilters = [
-        "ari:cloud:jira-core::site/71e61b65-4676-404d-96f0-38fbadce3261",
-      ]
       changeType = "VALUE_ADDED"
       fields = [
         {
@@ -30,12 +29,12 @@ jira.Automation idoTest2 {
     }
     conditions = [
     ]
-    id = "72ce0449-9ada-4eab-a313-ef1e943f10a1"
+    children = [
+    ]
   }
   components = [
     {
       component = "BRANCH"
-      schemaVersion = 1
       type = "jira.issue.related"
       value = {
         relatedType = "parent"
@@ -51,7 +50,6 @@ jira.Automation idoTest2 {
       children = [
         {
           component = "CONDITION"
-          schemaVersion = 3
           type = "jira.issue.condition"
           value = {
             selectedField = {
@@ -70,26 +68,20 @@ jira.Automation idoTest2 {
           }
           conditions = [
           ]
-          parentId = "4913b298-4609-4b30-ac16-d543548bb097"
           children = [
           ]
-          id = "a7e2ca12-f6a1-4331-87d6-ee055a6ff92b"
         },
         {
           component = "CONDITION"
-          schemaVersion = 1
           type = "jira.jql.condition"
           conditions = [
           ]
-          parentId = "4913b298-4609-4b30-ac16-d543548bb097"
           children = [
           ]
-          id = "97c51760-cdfa-4819-a0c2-2e1a4addf0f5"
           rawValue = "${ jira.Field.instance.Priority__priority } > ${ jira.Priority.instance.Medium.name }"
         },
         {
           component = "ACTION"
-          schemaVersion = 12
           type = "jira.issue.create"
           value = {
             operations = [
@@ -140,17 +132,13 @@ jira.Automation idoTest2 {
           }
           conditions = [
           ]
-          parentId = "4913b298-4609-4b30-ac16-d543548bb097"
           children = [
           ]
-          id = "8d02ef07-22b0-496f-a8a5-69ddc7ef2bb7"
         },
       ]
-      id = "4913b298-4609-4b30-ac16-d543548bb097"
     },
     {
       component = "ACTION"
-      schemaVersion = 12
       type = "jira.issue.create"
       value = {
         operations = [
@@ -203,13 +191,14 @@ jira.Automation idoTest2 {
       ]
       children = [
       ]
-      id = "4097fd79-dc05-4c96-adba-0518bbaf30be"
     },
   ]
   canOtherRuleTrigger = false
   notifyOnError = "FIRSTERROR"
-  ruleScopeARIs = [
-    "ari:cloud:jira-core::site/71e61b65-4676-404d-96f0-38fbadce3261",
+  projects = [
+    {
+      projectTypeKey = "business"
+    },
   ]
   labels = [
   ]
@@ -217,5 +206,10 @@ jira.Automation idoTest2 {
   collaborators = [
   ]
   _alias = "idoTest2"
-  uuid = "019e6458-b6b7-77b1-a1b1-97d213ca5352"
+  billingType = "NORMAL"
+  partitionId = "2b4dca46-929c-416e-be53-1a2fd2715576"
+  checksum = {
+    version = 3
+    value = "15b187c7a8070ba49f2316a70cf29c15d283e9767d183690297e6f8564de812e"
+  }
 }

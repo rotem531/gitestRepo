@@ -7,27 +7,26 @@ jira.Automation When_a_change_request_is_created___then_attach_the_default_chang
   }
   actor = {
     type = "ACCOUNT_ID"
-    actor = "61d44bf59ee70a00685fa6b6"
+    value = {
+      id = "61d44bf59ee70a00685fa6b6"
+      displayName = "Testing salto"
+    }
   }
   trigger = {
     component = "TRIGGER"
-    schemaVersion = 1
     type = "jira.issue.event.trigger:created"
     value = {
       eventKey = "jira:issue_created"
       issueEvent = "issue_created"
-      eventFilters = [
-        "ari:cloud:jira:71e61b65-4676-404d-96f0-38fbadce3261:project/10005",
-      ]
     }
     conditions = [
     ]
-    id = "31198969"
+    children = [
+    ]
   }
   components = [
     {
       component = "CONDITION"
-      schemaVersion = 3
       type = "jira.issue.condition"
       value = {
         selectedField = {
@@ -46,11 +45,9 @@ jira.Automation When_a_change_request_is_created___then_attach_the_default_chang
       ]
       children = [
       ]
-      id = "31198971"
     },
     {
       component = "ACTION"
-      schemaVersion = 1
       type = "jira.proforma.form.add.action"
       value = {
         templateFormsConfig = {
@@ -66,13 +63,14 @@ jira.Automation When_a_change_request_is_created___then_attach_the_default_chang
       ]
       children = [
       ]
-      id = "31198972"
     },
   ]
   canOtherRuleTrigger = true
   notifyOnError = "FIRSTERROR"
-  ruleScopeARIs = [
-    "ari:cloud:jira:71e61b65-4676-404d-96f0-38fbadce3261:project/10005",
+  projects = [
+    {
+      projectId = jira.Project.instance.missing_10005
+    },
   ]
   labels = [
     jira.AutomationLabel.instance.Change_management@s,
@@ -81,5 +79,10 @@ jira.Automation When_a_change_request_is_created___then_attach_the_default_chang
   collaborators = [
   ]
   _alias = "When a change request is created → then attach the default change management form"
-  uuid = "01913184-1d55-7c58-865b-f8d198d9923e"
+  billingType = "SYSTEM"
+  partitionId = "2b4dca46-929c-416e-be53-1a2fd2715576"
+  checksum = {
+    version = 2
+    value = "4cee861a0925e01f310a0970381df843cb69028eb101a6e7a2e3a115b1bbe3de"
+  }
 }

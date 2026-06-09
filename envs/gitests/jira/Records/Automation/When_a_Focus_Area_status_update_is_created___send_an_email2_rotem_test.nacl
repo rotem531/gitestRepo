@@ -1,38 +1,35 @@
-jira.Automation When_a_Focus_Area_status_update_is_created___send_an_email2@ssssssss_08594sss {
+jira.Automation When_a_Focus_Area_status_update_is_created___send_an_email2_rotem_test@ssssssss_08594sssub {
   name = "When a Focus Area status update is created → send an email2"
   state = "DISABLED"
   description = "When a Focus Area status update is created, this rule will send an email to specified addresses."
-  canOtherRuleTrigger = false
-  notifyOnError = "FIRSTERROR"
   authorAccountId = {
     id = "712020:38da96f3-a719-4d9f-8bb5-d53ff08774e0"
     displayName = "Rotem Cohen"
   }
   actor = {
     type = "ACCOUNT_ID"
-    actor = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
   }
   trigger = {
     component = "TRIGGER"
-    schemaVersion = 1
     type = "jira.issue.event.trigger:moved"
     value = {
       eventKey = "jira:issue_updated"
       issueEvent = "issue_moved"
-      eventFilters = [
-        "ari:cloud:jira:71e61b65-4676-404d-96f0-38fbadce3261:project/10039",
-      ]
       sourceProject = "-1999"
       targetProject = "-1999"
     }
     conditions = [
     ]
-    id = "a2cc0905-404d-47df-b4e7-02d0ad6695c9"
+    children = [
+    ]
   }
   components = [
     {
       component = "ACTION"
-      schemaVersion = -1
       type = "action.send-templated-email"
       value = {
         to = [
@@ -73,11 +70,14 @@ jira.Automation When_a_Focus_Area_status_update_is_created___send_an_email2@ssss
       ]
       children = [
       ]
-      id = "b20144ad-a2c2-42f8-ab11-21b5eadd9bc8"
     },
   ]
-  ruleScopeARIs = [
-    "ari:cloud:jira:71e61b65-4676-404d-96f0-38fbadce3261:project/10039",
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.rotem_test@b
+    },
   ]
   labels = [
     jira.AutomationLabel.instance.QWE,
@@ -86,6 +86,11 @@ jira.Automation When_a_Focus_Area_status_update_is_created___send_an_email2@ssss
   writeAccessType = "UNRESTRICTED"
   collaborators = [
   ]
-  uuid = "019e3acc-88ef-7581-a49d-e95421a3c310"
+  billingType = "NORMAL"
+  partitionId = "2b4dca46-929c-416e-be53-1a2fd2715576"
+  checksum = {
+    version = 3
+    value = "2af58cdb1e12020ecc6e9dc3df266c827a5061366b1deddb5d482732de20a668"
+  }
   _alias = "When a Focus Area status update is created → send an email2"
 }

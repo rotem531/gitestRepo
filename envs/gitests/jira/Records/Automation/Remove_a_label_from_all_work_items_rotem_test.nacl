@@ -1,20 +1,20 @@
-jira.Automation Remove_a_label_from_all_work_items@s {
+jira.Automation Remove_a_label_from_all_work_items_rotem_test@ssssssub {
   name = "Remove a label from all work items"
   state = "ENABLED"
   description = "Quickly clean up deprecated labels. When this rule is triggered, it will automatically remove a specific label from all tickets in the space."
-  canOtherRuleTrigger = false
-  notifyOnError = "FIRSTERROR"
   authorAccountId = {
     id = "712020:38da96f3-a719-4d9f-8bb5-d53ff08774e0"
     displayName = "Rotem Cohen"
   }
   actor = {
     type = "ACCOUNT_ID"
-    actor = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
   }
   trigger = {
     component = "TRIGGER"
-    schemaVersion = 3
     type = "jira.manual.trigger.issue"
     value = {
       inputFromUsers = false
@@ -25,12 +25,12 @@ jira.Automation Remove_a_label_from_all_work_items@s {
     }
     conditions = [
     ]
-    id = "bac1e3de-c5ae-44f2-849c-7f88e0c70ce3"
+    children = [
+    ]
   }
   components = [
     {
       component = "ACTION"
-      schemaVersion = -1
       type = "jira.create.variable"
       value = {
         id = "label-to-remove-id"
@@ -49,11 +49,9 @@ jira.Automation Remove_a_label_from_all_work_items@s {
       ]
       children = [
       ]
-      id = "05666f5a-e943-4e56-99e4-5c6e10398846"
     },
     {
       component = "BRANCH"
-      schemaVersion = 1
       type = "jira.issue.related"
       value = {
         relatedType = "jql"
@@ -69,7 +67,6 @@ jira.Automation Remove_a_label_from_all_work_items@s {
       children = [
         {
           component = "ACTION"
-          schemaVersion = 12
           type = "jira.issue.edit"
           value = {
             operations = [
@@ -100,17 +97,13 @@ jira.Automation Remove_a_label_from_all_work_items@s {
           }
           conditions = [
           ]
-          parentId = "a8466a83-649f-444b-930e-1d811a10e54a"
           children = [
           ]
-          id = "9aaec8ff-2afa-4375-a0bf-ce3960ac14c6"
         },
       ]
-      id = "a8466a83-649f-444b-930e-1d811a10e54a"
     },
     {
       component = "ACTION"
-      schemaVersion = 12
       type = "jira.issue.edit"
       value = {
         operations = [
@@ -143,11 +136,14 @@ jira.Automation Remove_a_label_from_all_work_items@s {
       ]
       children = [
       ]
-      id = "27e3fcaf-0255-4ee6-81a8-c0a6d9466c3d"
     },
   ]
-  ruleScopeARIs = [
-    "ari:cloud:jira:71e61b65-4676-404d-96f0-38fbadce3261:project/10039",
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.rotem_test@b
+    },
   ]
   labels = [
     jira.AutomationLabel.instance.testLabel,
@@ -156,6 +152,11 @@ jira.Automation Remove_a_label_from_all_work_items@s {
   writeAccessType = "UNRESTRICTED"
   collaborators = [
   ]
-  uuid = "019dd402-84aa-73c3-9455-3b558fb3af3d"
+  billingType = "NORMAL"
+  partitionId = "2b4dca46-929c-416e-be53-1a2fd2715576"
+  checksum = {
+    version = 3
+    value = "faa4226b71fe3714a499fdbac6af69e02763917f63c762a3ba95e5479a1a48a8"
+  }
   _alias = "Remove a label from all work items"
 }
