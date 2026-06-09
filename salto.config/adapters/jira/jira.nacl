@@ -1,0 +1,17 @@
+jira {
+  fetch = {
+    include = [
+      {
+        type = ".*"
+      },
+    ]
+    exclude = [
+    ]
+    splitFieldContextOptions = true
+    remove10KOptionsContexts = false
+    enableProjectsScope = false
+  }
+  deploy = {
+    forceDelete = false
+  }
+}

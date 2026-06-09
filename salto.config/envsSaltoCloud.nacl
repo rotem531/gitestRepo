@@ -1,0 +1,8 @@
+envs {
+  envsCloud = [
+    {
+      uuid = "76a5ab77-3be6-4450-ba97-7ab7b754911c"
+      folderName = "gitests"
+    },
+  ]
+}
