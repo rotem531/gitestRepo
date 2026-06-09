@@ -3,7 +3,7 @@ envs {
     {
       name = "gitests"
       accountToServiceName = {
-        salesforce = "salesforce"
+        jira = "jira"
       }
     },
   ]
