@@ -1,0 +1,11 @@
+salesforce.Role asdd {
+  caseAccessLevel = "Edit"
+  contactAccessLevel = "Edit"
+  description = "qwerr"
+  mayForecastManagerShare = false
+  name = "asdd"
+  opportunityAccessLevel = "Edit"
+  parentRole = salesforce.Role.instance.CEO
+  fullName = "asdd"
+  _alias = "asdd"
+}

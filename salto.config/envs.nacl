@@ -1,0 +1,10 @@
+envs {
+  envs = [
+    {
+      name = "gitest"
+      accountToServiceName = {
+        salesforce = "salesforce"
+      }
+    },
+  ]
+}
