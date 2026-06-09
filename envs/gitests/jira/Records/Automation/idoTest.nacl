@@ -7,13 +7,11 @@ jira.Automation idoTest {
   }
   actor = {
     type = "ACCOUNT_ID"
-    value = {
-      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
-      displayName = "Automation for Jira"
-    }
+    actor = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
   }
   trigger = {
     component = "TRIGGER"
+    schemaVersion = 2
     type = "jira.issue.field.changed"
     value = {
       changeType = "VALUE_ADDED"
@@ -29,12 +27,12 @@ jira.Automation idoTest {
     }
     conditions = [
     ]
-    children = [
-    ]
+    id = "31198953"
   }
   components = [
     {
       component = "BRANCH"
+      schemaVersion = 1
       type = "jira.issue.related"
       value = {
         relatedType = "parent"
@@ -50,6 +48,7 @@ jira.Automation idoTest {
       children = [
         {
           component = "CONDITION"
+          schemaVersion = 3
           type = "jira.issue.condition"
           value = {
             selectedField = {
@@ -68,20 +67,26 @@ jira.Automation idoTest {
           }
           conditions = [
           ]
+          parentId = "31198955"
           children = [
           ]
+          id = "31198957"
         },
         {
           component = "CONDITION"
+          schemaVersion = 1
           type = "jira.jql.condition"
           conditions = [
           ]
+          parentId = "31198955"
           children = [
           ]
+          id = "31198958"
           rawValue = "${ jira.Field.instance.Priority__priority } > ${ jira.Priority.instance.Medium.name }"
         },
         {
           component = "ACTION"
+          schemaVersion = 12
           type = "jira.issue.create"
           value = {
             operations = [
@@ -132,13 +137,17 @@ jira.Automation idoTest {
           }
           conditions = [
           ]
+          parentId = "31198955"
           children = [
           ]
+          id = "31198960"
         },
       ]
+      id = "31198955"
     },
     {
       component = "ACTION"
+      schemaVersion = 12
       type = "jira.issue.create"
       value = {
         operations = [
@@ -191,25 +200,19 @@ jira.Automation idoTest {
       ]
       children = [
       ]
+      id = "31198962"
     },
   ]
   canOtherRuleTrigger = false
   notifyOnError = "FIRSTERROR"
-  projects = [
-    {
-      projectTypeKey = "business"
-    },
+  ruleScopeARIs = [
+    "ari:cloud:jira-core::site/71e61b65-4676-404d-96f0-38fbadce3261",
   ]
   labels = [
   ]
   writeAccessType = "UNRESTRICTED"
   collaborators = [
   ]
-  billingType = "NORMAL"
-  partitionId = "2b4dca46-929c-416e-be53-1a2fd2715576"
-  checksum = {
-    version = 2
-    value = "96a5be1e0d7213298a4da7a4483ed61c36cd7ca2d87e82f6d67349c58dcad28a"
-  }
   _alias = "idoTest"
+  uuid = "018a8986-5893-7410-8f81-5dea75a4ae7a"
 }
